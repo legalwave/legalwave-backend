@@ -1,0 +1,1092 @@
+{
+  "components": {
+    "schemas": {
+      "ApiKeyCreated": {
+        "description": "The one and only time the secret itself is returned.",
+        "properties": {
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "prefix": {
+            "title": "Prefix",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "prefix",
+          "key",
+          "created_at"
+        ],
+        "title": "ApiKeyCreated",
+        "type": "object"
+      },
+      "ApiKeyOut": {
+        "properties": {
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "last_used_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Used At"
+          },
+          "prefix": {
+            "title": "Prefix",
+            "type": "string"
+          },
+          "revoked_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revoked At"
+          }
+        },
+        "required": [
+          "id",
+          "prefix",
+          "created_at",
+          "last_used_at",
+          "revoked_at"
+        ],
+        "title": "ApiKeyOut",
+        "type": "object"
+      },
+      "AttachmentOut": {
+        "properties": {
+          "filename": {
+            "title": "Filename",
+            "type": "string"
+          },
+          "size": {
+            "title": "Size",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "filename",
+          "size"
+        ],
+        "title": "AttachmentOut",
+        "type": "object"
+      },
+      "AuthResponse": {
+        "properties": {
+          "access_token": {
+            "title": "Access Token",
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserOut"
+          }
+        },
+        "required": [
+          "access_token",
+          "user"
+        ],
+        "title": "AuthResponse",
+        "type": "object"
+      },
+      "Body_stream_chat_api_chats_stream_post": {
+        "properties": {
+          "chat_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chat Id"
+          },
+          "file": {
+            "anyOf": [
+              {
+                "contentMediaType": "application/octet-stream",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ],
+        "title": "Body_stream_chat_api_chats_stream_post",
+        "type": "object"
+      },
+      "ChatDetail": {
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "messages": {
+            "items": {
+              "$ref": "#/components/schemas/MessageOut"
+            },
+            "title": "Messages",
+            "type": "array"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "messages"
+        ],
+        "title": "ChatDetail",
+        "type": "object"
+      },
+      "ChatSummary": {
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "preview": {
+            "title": "Preview",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "preview",
+          "updated_at"
+        ],
+        "title": "ChatSummary",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "HealthOut": {
+        "properties": {
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "HealthOut",
+        "type": "object"
+      },
+      "LawArticle": {
+        "properties": {
+          "article_num": {
+            "title": "Article Num",
+            "type": "string"
+          },
+          "article_title": {
+            "title": "Article Title",
+            "type": "string"
+          },
+          "law_id": {
+            "title": "Law Id",
+            "type": "string"
+          },
+          "law_title": {
+            "title": "Law Title",
+            "type": "string"
+          },
+          "paragraphs": {
+            "items": {
+              "$ref": "#/components/schemas/LawParagraph"
+            },
+            "title": "Paragraphs",
+            "type": "array"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "law_id",
+          "law_title",
+          "article_num",
+          "article_title",
+          "paragraphs",
+          "source_url"
+        ],
+        "title": "LawArticle",
+        "type": "object"
+      },
+      "LawParagraph": {
+        "properties": {
+          "num": {
+            "title": "Num",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "num",
+          "text"
+        ],
+        "title": "LawParagraph",
+        "type": "object"
+      },
+      "LoginIn": {
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "password": {
+            "title": "Password",
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ],
+        "title": "LoginIn",
+        "type": "object"
+      },
+      "MessageOut": {
+        "properties": {
+          "attachment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AttachmentOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "content": {
+            "title": "Content",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "user",
+              "assistant"
+            ],
+            "title": "Role",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "role",
+          "content",
+          "created_at"
+        ],
+        "title": "MessageOut",
+        "type": "object"
+      },
+      "RegisterIn": {
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "password": {
+            "title": "Password",
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ],
+        "title": "RegisterIn",
+        "type": "object"
+      },
+      "UserOut": {
+        "description": "The public view of a user. Never exposes `password_hash`.",
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          }
+        },
+        "required": [
+          "id",
+          "email"
+        ],
+        "title": "UserOut",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Japanese Law Contract Analyzer",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "operationId": "login_api_auth_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Login"
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "operationId": "me_api_auth_me_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Me"
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "operationId": "register_api_auth_register_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Register"
+      }
+    },
+    "/api/chats": {
+      "get": {
+        "operationId": "list_chats_api_chats_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ChatSummary"
+                  },
+                  "title": "Response List Chats Api Chats Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Chats"
+      }
+    },
+    "/api/chats/stream": {
+      "post": {
+        "operationId": "stream_chat_api_chats_stream_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_stream_chat_api_chats_stream_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Stream Chat"
+      }
+    },
+    "/api/chats/{chat_id}": {
+      "delete": {
+        "operationId": "delete_chat_api_chats__chat_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chat_id",
+            "required": true,
+            "schema": {
+              "title": "Chat Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Chat"
+      },
+      "get": {
+        "operationId": "get_chat_api_chats__chat_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chat_id",
+            "required": true,
+            "schema": {
+              "title": "Chat Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatDetail"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Chat"
+      }
+    },
+    "/api/health": {
+      "get": {
+        "operationId": "health_api_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health"
+      }
+    },
+    "/api/keys": {
+      "get": {
+        "operationId": "list_keys_api_keys_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ApiKeyOut"
+                  },
+                  "title": "Response List Keys Api Keys Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Keys"
+      },
+      "post": {
+        "operationId": "create_key_api_keys_post",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiKeyCreated"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Create Key"
+      }
+    },
+    "/api/keys/{key_id}": {
+      "delete": {
+        "operationId": "revoke_key_api_keys__key_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "key_id",
+            "required": true,
+            "schema": {
+              "title": "Key Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Revoke Key"
+      }
+    },
+    "/api/laws/{law_id}/articles/{article_num}": {
+      "get": {
+        "operationId": "law_article_api_laws__law_id__articles__article_num__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "law_id",
+            "required": true,
+            "schema": {
+              "title": "Law Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "article_num",
+            "required": true,
+            "schema": {
+              "title": "Article Num",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LawArticle"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Law Article"
+      }
+    }
+  },
+  "x-stream-events": {
+    "description": "The NDJSON event stream emitted by POST /api/chats/stream. One JSON object per line, each discriminated by its `type` field. Clients must tolerate unknown types and partial reads.",
+    "events": [
+      {
+        "properties": {
+          "chat_id": {
+            "title": "Chat Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "type": {
+            "const": "chat",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "chat_id",
+          "title"
+        ],
+        "title": "StreamEventChat",
+        "type": "object"
+      },
+      {
+        "properties": {
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Label"
+          },
+          "stage": {
+            "title": "Stage",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "complete"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "type": {
+            "const": "stage",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "stage",
+          "status"
+        ],
+        "title": "StreamEventStage",
+        "type": "object"
+      },
+      {
+        "properties": {
+          "args": {
+            "additionalProperties": true,
+            "title": "Args",
+            "type": "object"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "type": {
+            "const": "tool_call",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "name"
+        ],
+        "title": "StreamEventToolCall",
+        "type": "object"
+      },
+      {
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          },
+          "type": {
+            "const": "tool_result",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "name",
+          "summary"
+        ],
+        "title": "StreamEventToolResult",
+        "type": "object"
+      },
+      {
+        "properties": {
+          "delta": {
+            "title": "Delta",
+            "type": "string"
+          },
+          "type": {
+            "const": "text_delta",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "delta"
+        ],
+        "title": "StreamEventTextDelta",
+        "type": "object"
+      },
+      {
+        "$defs": {
+          "StreamCitation": {
+            "properties": {
+              "article": {
+                "title": "Article",
+                "type": "string"
+              },
+              "id": {
+                "title": "Id",
+                "type": "string"
+              },
+              "label": {
+                "title": "Label",
+                "type": "string"
+              },
+              "law_id": {
+                "title": "Law Id",
+                "type": "string"
+              },
+              "law_title": {
+                "title": "Law Title",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "law_id",
+              "law_title",
+              "article"
+            ],
+            "title": "StreamCitation",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/StreamCitation"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "type": {
+            "const": "citations",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "items"
+        ],
+        "title": "StreamEventCitations",
+        "type": "object"
+      },
+      {
+        "properties": {
+          "message_id": {
+            "title": "Message Id",
+            "type": "string"
+          },
+          "type": {
+            "const": "done",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "message_id"
+        ],
+        "title": "StreamEventDone",
+        "type": "object"
+      },
+      {
+        "properties": {
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "const": "error",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "message"
+        ],
+        "title": "StreamEventError",
+        "type": "object"
+      }
+    ],
+    "mediaType": "application/x-ndjson",
+    "models": {
+      "StreamCitation": {
+        "properties": {
+          "article": {
+            "title": "Article",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "law_id": {
+            "title": "Law Id",
+            "type": "string"
+          },
+          "law_title": {
+            "title": "Law Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "law_id",
+          "law_title",
+          "article"
+        ],
+        "title": "StreamCitation",
+        "type": "object"
+      }
+    }
+  }
+}

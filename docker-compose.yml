@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:17
+    container_name: legal-postgres
+    environment:
+      POSTGRES_DB: legal
+      POSTGRES_USER: legal
+      POSTGRES_PASSWORD: legal
+    ports:
+      - "5434:5432"
+    volumes:
+      - legal_pgdata:/var/lib/postgresql/data
+volumes:
+  legal_pgdata:
